@@ -6,7 +6,7 @@
 /*   By: aleon-ca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 17:47:17 by aleon-ca          #+#    #+#             */
-/*   Updated: 2019/11/20 10:15:02 by aleon-ca         ###   ########.fr       */
+/*   Updated: 2019/11/20 10:59:04 by aleon-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,9 @@ char			**ft_split(char const *s, char c)
 		return (table);
 	}
 	else
-		return (0);
+	{
+		table = malloc(sizeof(char *) * 1);
+		table[0] = 0;
+		return (table);
+	}
 }

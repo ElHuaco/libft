@@ -1,26 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aleon-ca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/19 15:57:02 by aleon-ca          #+#    #+#             */
-/*   Updated: 2019/11/20 10:52:07 by aleon-ca         ###   ########.fr       */
+/*   Created: 2019/11/19 16:00:15 by aleon-ca          #+#    #+#             */
+/*   Updated: 2019/11/20 11:46:45 by aleon-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_lstiter(t_list *lst, void (*f)(void *))
+t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	if (f != 0 && lst != 0)
+	t_list *newlst;
+	t_list *first;
+
+	if (lst && f != 0 && del != 0)
 	{
+		newlst = malloc(sizeof(t_list) * 1);
+		if (newlst == 0)
+			return (0);
+		first = newlst;
 		while (lst->next)
 		{
-			f(lst->content);
+			newlst->content = f(lst->content);
+			newlst->next = malloc(sizeof(t_list) * 1);
+			if (newlst->next == 0)
+				return (0);
 			lst = lst->next;
+			newlst = newlst->next;
 		}
-		f(lst->content);
+		newlst->content = f(lst->content);
+		newlst->next = 0;
+		return (first);
 	}
+	else
+		return (0);
 }
