@@ -6,15 +6,15 @@
 /*   By: aleon-ca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 12:19:54 by aleon-ca          #+#    #+#             */
-/*   Updated: 2019/11/18 14:21:09 by aleon-ca         ###   ########.fr       */
+/*   Updated: 2019/11/21 14:56:28 by aleon-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, unsigned int n)
+void	ft_bzero(void *s, size_t n)
 {
-	unsigned int i;
+	size_t	i;
 
 	if (n != 0)
 	{

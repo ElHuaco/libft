@@ -6,15 +6,15 @@
 /*   By: aleon-ca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 11:00:54 by aleon-ca          #+#    #+#             */
-/*   Updated: 2019/11/20 09:37:06 by aleon-ca         ###   ########.fr       */
+/*   Updated: 2019/11/21 14:53:27 by aleon-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+size_t	ft_strlcpy(char *dest, char *src, size_t size)
 {
-	unsigned int i;
+	size_t	i;
 
 	i = 0;
 	if (size != 0 && src && dest)

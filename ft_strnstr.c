@@ -6,34 +6,37 @@
 /*   By: aleon-ca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 09:43:21 by aleon-ca          #+#    #+#             */
-/*   Updated: 2019/11/18 14:43:29 by aleon-ca         ###   ########.fr       */
+/*   Updated: 2019/11/21 15:13:59 by aleon-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_strnstr(char *str, char *to_find, unsigned int n)
+char		*ft_strnstr(const char *s, const char *f, size_t n)
 {
-	unsigned int i;
-	unsigned int j;
+	size_t	i;
+	size_t	j;
+	char	*to_find;
 
-	if (to_find[0])
+	if (*((char *)f))
 	{
+		to_find = (char *)f;
 		i = 0;
-		while (str[i] && i < n)
+		while (*((char *)s + i) && i < n)
 		{
 			j = 0;
-			if (str[i] == to_find[j])
+			if (*((char *)s + i) == to_find[j])
 			{
-				while (to_find[j] && str[i + j] == to_find[j] && i + j < n)
+				while (to_find[j] && *((char *)s + i + j) == to_find[j]
+						&& i + j < n)
 					j++;
-				if (j == (unsigned int)ft_strlen(to_find))
-					return (&str[i]);
+				if (j == (size_t)ft_strlen(to_find))
+					return ((char *)s + i);
 			}
 			i++;
 		}
 		return (0);
 	}
 	else
-		return (str);
+		return ((char *)s);
 }

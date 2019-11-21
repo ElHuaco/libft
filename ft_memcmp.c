@@ -6,15 +6,15 @@
 /*   By: aleon-ca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 16:55:49 by aleon-ca          #+#    #+#             */
-/*   Updated: 2019/11/18 14:23:23 by aleon-ca         ###   ########.fr       */
+/*   Updated: 2019/11/21 14:59:58 by aleon-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_memcmp(void *dest, const void *src, unsigned int n)
+int		ft_memcmp(void *dest, const void *src, size_t n)
 {
-	unsigned int	i;
+	size_t			i;
 	unsigned char	*cdest;
 	unsigned char	*csrc;
 

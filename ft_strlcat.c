@@ -6,15 +6,15 @@
 /*   By: aleon-ca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 11:40:42 by aleon-ca          #+#    #+#             */
-/*   Updated: 2019/11/18 14:41:02 by aleon-ca         ###   ########.fr       */
+/*   Updated: 2019/11/21 14:54:54 by aleon-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	unsigned int	ft_strnlen(char *str, unsigned int n)
+static	size_t		ft_strnlen(char *str, size_t n)
 {
-	unsigned int i;
+	size_t i;
 
 	i = 0;
 	while (str[i] && i < n)
@@ -22,10 +22,10 @@ static	unsigned int	ft_strnlen(char *str, unsigned int n)
 	return (i);
 }
 
-unsigned int			ft_strlcat(char *dest, char *src, unsigned int size)
+size_t				ft_strlcat(char *dest, char *src, size_t size)
 {
-	unsigned int	destlen;
-	unsigned int	srclen;
+	size_t	destlen;
+	size_t	srclen;
 
 	destlen = ft_strnlen(dest, size);
 	srclen = ft_strlen(src);

@@ -6,13 +6,13 @@
 /*   By: aleon-ca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 15:49:23 by aleon-ca          #+#    #+#             */
-/*   Updated: 2019/11/20 09:45:02 by aleon-ca         ###   ########.fr       */
+/*   Updated: 2019/11/21 15:09:26 by aleon-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	char	*ft_check(char const *s, char *sub, unsigned int start, int n)
+static char	*ft_check(char const *s, char *sub, unsigned int start, int n)
 {
 	int i;
 
@@ -22,21 +22,21 @@ static	char	*ft_check(char const *s, char *sub, unsigned int start, int n)
 	return (sub);
 }
 
-static	char	*ft_first(char const *s, char *sub, unsigned int start, int n)
+static char	*ft_first(char const *s, char *sub, unsigned int start, int n)
 {
 	sub = ft_check(s, sub, start, n - start + 1);
 	sub[n - start + 1] = '\0';
 	return (sub);
 }
 
-static	char	*ft_other(char const *s, char *sub, unsigned int start, int len)
+static char	*ft_other(char const *s, char *sub, unsigned int st, size_t len)
 {
-	sub = ft_check(s, sub, start, len);
+	sub = ft_check(s, sub, st, len);
 	sub[len] = '\0';
 	return (sub);
 }
 
-char			*ft_substr(char const *s, unsigned int start, unsigned int len)
+char		*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*sub;
 
@@ -47,7 +47,7 @@ char			*ft_substr(char const *s, unsigned int start, unsigned int len)
 			return (0);
 		sub[0] = '\0';
 	}
-	else if (s && (start + len > (unsigned int)ft_strlen((char *)s)))
+	else if (s && ((size_t)start + len > (size_t)ft_strlen((char *)s)))
 	{
 		sub = malloc(sizeof(char) * (ft_strlen((char *)s) - start + 2));
 		if (sub == 0)

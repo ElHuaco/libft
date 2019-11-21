@@ -6,16 +6,16 @@
 /*   By: aleon-ca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 11:27:24 by aleon-ca          #+#    #+#             */
-/*   Updated: 2019/11/18 14:21:40 by aleon-ca         ###   ########.fr       */
+/*   Updated: 2019/11/21 14:55:51 by aleon-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(unsigned int count, unsigned int size)
+void	*ft_calloc(size_t count, size_t size)
 {
 	void			*buff;
-	unsigned int	i;
+	size_t			i;
 
 	buff = malloc(size * count);
 	if (buff == 0)
