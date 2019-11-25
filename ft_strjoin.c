@@ -6,7 +6,7 @@
 /*   By: aleon-ca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 16:26:12 by aleon-ca          #+#    #+#             */
-/*   Updated: 2019/11/20 09:49:17 by aleon-ca         ###   ########.fr       */
+/*   Updated: 2019/11/25 14:57:24 by aleon-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 char		*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*j;
-	int		i;
-	int		k;
+	size_t	i;
+	size_t	k;
 	char	*cs1;
 	char	*cs2;
 

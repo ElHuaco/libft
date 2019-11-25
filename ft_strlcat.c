@@ -6,7 +6,7 @@
 /*   By: aleon-ca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 11:40:42 by aleon-ca          #+#    #+#             */
-/*   Updated: 2019/11/21 14:54:54 by aleon-ca         ###   ########.fr       */
+/*   Updated: 2019/11/25 14:57:46 by aleon-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static	size_t		ft_strnlen(char *str, size_t n)
 	return (i);
 }
 
-size_t				ft_strlcat(char *dest, char *src, size_t size)
+size_t				ft_strlcat(char *dest, const char *src, size_t size)
 {
 	size_t	destlen;
 	size_t	srclen;

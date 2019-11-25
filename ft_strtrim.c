@@ -6,7 +6,7 @@
 /*   By: aleon-ca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 17:00:50 by aleon-ca          #+#    #+#             */
-/*   Updated: 2019/11/20 10:12:08 by aleon-ca         ###   ########.fr       */
+/*   Updated: 2019/11/25 14:59:15 by aleon-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ char		*ft_strtrim(char const *s1, char const *set)
 		s = ft_find_start(s1, set);
 		e = ft_find_end(s1, set);
 		if (ft_strlen((char *)s1) != 0
-				&& s == (ft_strlen((char *)s1) - 1) && e == 0)
+				&& s == ((int)ft_strlen((char *)s1) - 1) && e == 0)
 		{
 			result = malloc(sizeof(char) * 1);
 			result[0] = '\0';
