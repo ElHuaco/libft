@@ -6,13 +6,13 @@
 /*   By: aleon-ca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 09:22:53 by aleon-ca          #+#    #+#             */
-/*   Updated: 2019/11/18 14:23:48 by aleon-ca         ###   ########.fr       */
+/*   Updated: 2019/11/25 15:24:04 by aleon-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		*ft_memset(void *b, int c, unsigned int len)
+void		*ft_memset(void *b, int c, size_t len)
 {
 	unsigned int i;
 

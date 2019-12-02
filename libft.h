@@ -6,7 +6,7 @@
 /*   By: aleon-ca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 12:24:38 by aleon-ca          #+#    #+#             */
-/*   Updated: 2019/11/25 14:56:22 by aleon-ca         ###   ########.fr       */
+/*   Updated: 2019/11/25 15:36:53 by aleon-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ typedef struct	s_l
 	struct s_l	*next;
 }				t_list;
 
-void			*ft_memset(void *b, int c, unsigned int len);
+void			*ft_memset(void *b, int c, size_t len);
 size_t			ft_strlen(const char *str);
 int				ft_atoi(const char *str);
 int				ft_strncmp(const char *s1, const char *s2, size_t n);
