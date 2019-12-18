@@ -6,7 +6,7 @@
 /*   By: aleon-ca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 12:24:38 by aleon-ca          #+#    #+#             */
-/*   Updated: 2019/11/25 15:36:53 by aleon-ca         ###   ########.fr       */
+/*   Updated: 2019/12/18 15:33:58 by aleon-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,8 @@ void			ft_lstdelone(t_list *lst, void (*del)(void *));
 void			ft_lstclear(t_list **lst, void (*del)(void *));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *l, void *(*f)(void *), void (*d)(void *));
+
+char			*ft_strndup(char *src, int n);
+char			*ft_strunichr(int len, int c);
+void			ft_strrep(char *str, int changed, int replacer);
 #endif
