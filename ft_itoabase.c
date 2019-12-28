@@ -6,11 +6,11 @@
 /*   By: aleon-ca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 18:26:03 by aleon-ca          #+#    #+#             */
-/*   Updated: 2019/12/28 17:37:04 by aleon-ca         ###   ########.fr       */
+/*   Updated: 2019/12/28 18:46:40 by aleon-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int			ft_strlen(char *str);
+#include "libft.h"
 
 static int	ft_digitcount(int n, int basesize)
 {
