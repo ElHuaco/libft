@@ -6,7 +6,7 @@
 /*   By: aleon-ca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/18 12:24:38 by aleon-ca          #+#    #+#             */
-/*   Updated: 2019/12/18 15:33:58 by aleon-ca         ###   ########.fr       */
+/*   Updated: 2019/12/28 18:24:24 by aleon-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,5 @@ t_list			*ft_lstmap(t_list *l, void *(*f)(void *), void (*d)(void *));
 char			*ft_strndup(char *src, int n);
 char			*ft_strunichr(int len, int c);
 void			ft_strrep(char *str, int changed, int replacer);
+char			*ft_itoabase(int n);
 #endif
