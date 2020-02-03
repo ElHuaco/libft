@@ -6,11 +6,11 @@
 /*   By: aleon-ca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 14:23:18 by aleon-ca          #+#    #+#             */
-/*   Updated: 2020/02/03 14:24:18 by aleon-ca         ###   ########.fr       */
+/*   Updated: 2020/02/03 14:25:57 by aleon-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "libft.h"
 
 int		ft_arrlen(char **arr)
 {
