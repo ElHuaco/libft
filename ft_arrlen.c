@@ -1,36 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stronlychr.c                                    :+:      :+:    :+:   */
+/*   ft_arrlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aleon-ca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/03 12:49:05 by aleon-ca          #+#    #+#             */
-/*   Updated: 2020/02/03 14:22:11 by aleon-ca         ###   ########.fr       */
+/*   Created: 2020/02/03 14:23:18 by aleon-ca          #+#    #+#             */
+/*   Updated: 2020/02/03 14:24:18 by aleon-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdarg.h>
+#include "cub3d.h"
 
-int		ft_stronlychr(char *str, ...)
+int		ft_arrlen(char **arr)
 {
-	va_list		ptr;
-	char		c;
-	int			i;
+	int i;
 
-	if (!str)
-		return (0);
-	va_start(ptr, str);
-	while ((c = va_arg(ptr, int)))
-	{
-		i = -1;
-		while (str[i++])
-		{
-			if (str[i] != c)
-				return (0);
-		}
-	}
-	va_end(ptr);
-	return (1);
+	i = 0;
+	while (arr[i])
+		i++;
+	return (i);
 }

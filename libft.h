@@ -6,7 +6,7 @@
 /*   By: aleon-ca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/20 15:38:15 by aleon-ca          #+#    #+#             */
-/*   Updated: 2020/02/03 13:15:09 by aleon-ca         ###   ########.fr       */
+/*   Updated: 2020/02/03 14:23:12 by aleon-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,4 +72,5 @@ void			ft_strrep(char *str, int changed, int replacer);
 char			*ft_itoabase(int n, char *base);
 char			*ft_ultoabase(unsigned long  n, char *base);
 int				ft_stronlychr(char *str, ...);
+int				ft_arrlen(char **arr);
 #endif
