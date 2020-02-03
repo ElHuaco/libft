@@ -6,7 +6,7 @@
 /*   By: aleon-ca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/03 14:28:06 by aleon-ca          #+#    #+#             */
-/*   Updated: 2020/02/03 14:28:34 by aleon-ca         ###   ########.fr       */
+/*   Updated: 2020/02/03 14:29:37 by aleon-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ int		ft_strcmp(const char *s1, const char *s2)
 	i = 0;
 	cs1 = (unsigned char *)s1;
 	cs2 = (unsigned char *)s2;
-	if (n == 0)
-		return (0);
 	while (s1[i] || s2[i])
 	{
 		if (cs1[i] == cs2[i])
