@@ -6,7 +6,7 @@
 /*   By: aleon-ca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/20 15:38:15 by aleon-ca          #+#    #+#             */
-/*   Updated: 2020/02/04 12:16:30 by aleon-ca         ###   ########.fr       */
+/*   Updated: 2020/07/06 10:34:00 by aleon-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,6 @@ char			*ft_itoabase(int n, char *base);
 char			*ft_ultoabase(unsigned long  n, char *base);
 int				ft_arrlen(char **arr);
 int				ft_strcmp(char *s1, char *s2);
+int				digit_number(int n, int basesize);
+void			full_free(void **buff, int arr_len);
 #endif

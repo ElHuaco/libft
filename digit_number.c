@@ -1,39 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   digit_number.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aleon-ca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/05 09:24:51 by aleon-ca          #+#    #+#             */
-/*   Updated: 2019/11/21 14:48:50 by aleon-ca         ###   ########.fr       */
+/*   Created: 2020/07/06 10:35:53 by aleon-ca          #+#    #+#             */
+/*   Updated: 2020/07/06 10:37:29 by aleon-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strncmp(const char *s1, const char *s2, size_t n)
+int		digit_number(int n, int basesize)
 {
-	size_t			i;
-	unsigned char	*cs1;
-	unsigned char	*cs2;
+	int i;
 
-	i = 0;
-	cs1 = (unsigned char *)s1;
-	cs2 = (unsigned char *)s2;
-	if (n == 0)
-		return (0);
-	while (i < n && (s1[i] || s2[i]))
+	if (n < 0)
+			n *= -1;
+	i = 1;
+	while ((n / basesize) > 0)
 	{
-		if (cs1[i] == cs2[i])
-			i++;
-		else
-		{
-			if (cs1[i] > cs2[i])
-				return (1);
-			else
-				return (-1);
-		}
+		n = n / basesize;
+		i++;
 	}
-	return (0);
+	return(i);
 }
