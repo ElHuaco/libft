@@ -1,8 +1,10 @@
-SRCS	= *.c
+SRCS	= src/*.c
 
 OBJS	= $(SRCS:.c=.o)
 
-FLAGS	= -Werror -Wall -Wextra
+INCLUDE = include/
+
+FLAGS	= -Werror -Wall -Wextra -I $(INCLUDE)
 
 NAME	= libft.a
 
@@ -10,6 +12,7 @@ RM		= rm -f
 
 $(NAME):
 		gcc $(FLAGS) -c $(SRCS)
+		mv *.o src/
 		ar rc $(NAME) $(OBJS)
 		ranlib $(NAME)
 
