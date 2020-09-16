@@ -5,88 +5,125 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aleon-ca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/19 17:53:32 by aleon-ca          #+#    #+#             */
-/*   Updated: 2020/01/31 14:35:31 by aleon-ca         ###   ########.fr       */
+/*   Created: 2020/09/11 08:35:48 by aleon-ca          #+#    #+#             */
+/*   Updated: 2020/09/11 12:56:27 by aleon-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int		memread_update(int fd, char **mem, char **line)
+static char		*ft_strchr(char *str, int c)
 {
-	char		*nlpos;
+	int		i;
 
-	if ((nlpos = ft_strchr(mem[fd], '\n')))
-		return (read_update(fd, mem, nlpos, line));
-	else
+	i = -1;
+	while (str[++i])
 	{
-		*line = ft_strdup(mem[fd]);
-		free(mem[fd]);
-		mem[fd] = 0;
+		if (str[i] == c)
+			return (str + i);
 	}
 	return (0);
 }
 
-int		read_update(int fd, char **mem, char *nlpos, char **line)
+static char		*mem_update_by_buff_join(int fd, char **mem, char *buff)
 {
+	int		i;
+	int		j;
 	char	*temp;
 
-	*nlpos = '\0';
-	*line = ft_strdup(mem[fd]);
-	temp = ft_strdup(mem[fd] + ft_strlen(*line) + 1);
+	i = -1;
+	while (mem[fd][++i])
+		;
+	j = -1;
+	while (buff[++j])
+		;
+	temp = malloc(sizeof(char) * (i + j + 1));
+	temp[i + j] = '\0';
+	i = -1;
+	while (mem[fd][++i])
+		temp[i] = mem[fd][i];
+	j = -1;
+	while (buff[++j])
+		temp[i + j] = buff[j];
+	free(mem[fd]);
+	mem[fd] = temp;
+	free(buff);
+	return (temp + i);
+}
+
+static int		lineread__mem_trunc(int fd, char **mem, char *nl, char **line)
+{
+	int		i;
+	int		j;
+	char	*temp;
+
+	*nl = '\0';
+	i = -1;
+	while (mem[fd][++i])
+		;
+	*line = malloc(sizeof(char) * (i + 1));
+	*(*line + i) = '\0';
+	j = -1;
+	while (mem[fd][++j])
+		*(*line + j) = mem[fd][j];
+	while (mem[fd][++i])
+		;
+	temp = malloc(sizeof(char) * (i - j));
+	temp[i - j - 1] = '\0';
+	i = j;
+	while (mem[fd][++i])
+		temp[i - j - 1] = mem[fd][i];
 	free(mem[fd]);
 	mem[fd] = temp;
 	return (1);
 }
 
-static	void	mem_update(int fd, char **mem, char *buff)
+static int		remaining_mem_update(int fd, char **mem, char **line)
 {
-	char	*temp;
-
-	temp = ft_strjoin(mem[fd], buff);
-	free(mem[fd]);
-	mem[fd] = temp;
-}
-
-static	char	*ft_zalloc(int n)
-{
-	char	*result;
 	int		i;
+	char	*nlpos;
 
-	result = malloc(sizeof(char) * n);
-	if (!result)
+	if ((nlpos = ft_strchr(mem[fd], '\n')))
+		return (lineread__mem_trunc(fd, mem, nlpos, line));
+	else
+	{
+		i = -1;
+		while (mem[fd][++i])
+			;
+		*line = malloc(sizeof(char) * (i + 1));
+		i = -1;
+		while (mem[fd][++i])
+			*(*line + i) = mem[fd][i];
+		free(mem[fd]);
+		mem[fd] = 0;
 		return (0);
-	i = -1;
-	while (++i < n)
-		result[i] = 0;
-	return (result);
+	}
 }
 
 int				get_next_line(int fd, char **line)
 {
-	int				bytes_read;
-	static char		*mem[4096];
-	char			*buff;
+	int			bytes_read;
+	char		*buff;
+	char		*nl;
+	static char	*mem[4096];
 
-	if (!line || fd < 0 || BS <= 0 || !(buff = malloc(sizeof(char) * (BS + 1))))
+	if ((fd < 0) || !line || !(buff = malloc(sizeof(char) * (BUFFER_SIZE + 1))))
 		return (-1);
 	if (!mem[fd])
-		mem[fd] = ft_zalloc(1);
-	while ((bytes_read = read(fd, buff, BS)) > 0)
+	{
+		mem[fd] = malloc(sizeof(char) * 1);
+		mem[fd][0] = '\0';
+	}
+	while ((bytes_read = read(fd, buff, BUFFER_SIZE)) > 0)
 	{
 		buff[bytes_read] = '\0';
-		mem_update(fd, mem, buff);
-		if ((ft_strchr(mem[fd], '\n')))
-		{
-			free(buff);
-			return (read_update(fd, mem, ft_strchr(mem[fd], '\n'), line));
-		}
-		free(buff);
-		buff = malloc(sizeof(char) * (BS + 1));
+		if ((nl = ft_strchr(mem_update_by_buff_join(fd, mem, buff), '\n')))
+			return (lineread__mem_trunc(fd, mem, nl, line));
+		buff = malloc(sizeof(char) * (BUFFER_SIZE));
 	}
 	if (buff)
 		free(buff);
 	if (bytes_read == 0)
-		return (memread_update(fd, mem, line));
+		return (remaining_mem_update(fd, mem, line));
 	return (-1);
 }

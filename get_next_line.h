@@ -5,25 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aleon-ca <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/19 17:54:27 by aleon-ca          #+#    #+#             */
-/*   Updated: 2020/01/31 14:36:22 by aleon-ca         ###   ########.fr       */
+/*   Created: 2020/09/11 08:33:53 by aleon-ca          #+#    #+#             */
+/*   Updated: 2020/09/16 12:40:48 by aleon-ca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
-# endif
+# include <unistd.h>
+# include <stdlib.h>
+# include "get_next_line.h"
 
-# ifdef BUFFER_SIZE
-#  define BS BUFFER_SIZE
-# endif
+# define BUFFER_SIZE 42
 
-# include "libft.h"
+int		get_next_line(int fd, char **line);
 
-int					get_next_line(int fd, char **line);
-int					memread_update(int fd, char **mem, char **line);
-int					read_update(int fd, char **mem, char *nlpos, char **line);
 #endif
